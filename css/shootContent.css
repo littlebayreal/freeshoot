@@ -1,0 +1,17 @@
+.stop_name{
+  height: 30px;
+  line-height: 30px;
+  color: gray;
+  font-size: 20px;
+}
+.stop_name_input{
+  height: 30px;
+  font-size: 20px;
+  line-height: 30px;
+}
+.image_name{
+  height: 30px;
+  font-size: 20px;
+  color: gray;
+  line-height: 30px;
+}

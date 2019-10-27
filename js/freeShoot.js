@@ -26,17 +26,6 @@ $(function() {// 初始化内容
 	initData();
 });  
 
- // <div class="item">
- //            <text class="col-xs-4 col-sm-4" style="color: #33ff33">胥江路</text>
- //            <text class="col-xs-4 col-sm-4" style="color: #33ff33">东</text>
- //            <text class="col-xs-4 col-sm-4" style="color: #33ff33">已拍√</text>
- //        </div>
- //        <li class="item_divider"></li>
- //        <div class="item">
- //           <text class="col-xs-4 col-sm-4" style="color: red">桐泾公园</text>
- //           <text class="col-xs-4 col-sm-4" style="color: red">东</text>
- //           <button type="button" class="btn btn-default">拍照</button>
- //        </div>
  function initData(){
  	var list_html = "";
  	for(var i=0;i<datas.length;i++){
