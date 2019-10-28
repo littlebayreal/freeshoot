@@ -5,6 +5,7 @@ var PAGESIZE = 10;
 var CurrentPage = 0;
 var TotalPage = 0;
 var menuDatas = [];
+const url = "http://10.111.12.147:54842";
 //模拟数据
 // var datas = [
 // {"WFSiteManageID":"8248dc1c-6c22-4f1d-a37c-37e62cc01bc2","Title":"站点变更流程2019092601","Items":[
@@ -34,7 +35,7 @@ $(function() {// 初始化内容
 //请求网络数据
 function http(){
   $.ajax({
-    url:"http://10.111.12.147:54842/Mobile/QueryApprovedWFSiteFlow",
+    url:url+"/Mobile/QueryApprovedWFSiteFlow",
     type:'POST',             
                 contentType:"application/x-www-form-urlencoded",   // 告诉jQuery不要去设置Content-Type请求头
                 cache:false,
@@ -80,7 +81,7 @@ function http(){
 //根据页码请求数据
 function httpForPage(page){
 $.ajax({
-    url:"http://10.111.12.147:54842/Mobile/QueryApprovedWFSiteFlow",
+    url:url+"/Mobile/QueryApprovedWFSiteFlow",
     type:'POST',             
                 contentType:"application/x-www-form-urlencoded",   // 告诉jQuery不要去设置Content-Type请求头
                 cache:false,
@@ -152,7 +153,7 @@ function openShoot(obj){
 function initMenu(id){
   console.log("页码"+ JSON.stringify(menuDatas['Model'][id]));
   $.ajax({
-    url:"http://10.111.12.147:54842/Mobile/QueryWFSitePhoto",
+    url:url+"/Mobile/QueryWFSitePhoto",
     type:'POST',             
                 contentType:"application/x-www-form-urlencoded",   // 告诉jQuery不要去设置Content-Type请求头
                 cache:false,
