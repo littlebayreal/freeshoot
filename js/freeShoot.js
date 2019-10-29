@@ -69,8 +69,8 @@ function http(){
                         callback: function(current) {
                         //执行翻页逻辑
                         httpForPage(current);
-          }
-        });
+                      }
+                    });
 
                       menuDatas = datax;
                       initData(datax['Model']);
@@ -80,7 +80,7 @@ function http(){
 }
 //根据页码请求数据
 function httpForPage(page){
-$.ajax({
+  $.ajax({
     url:url+"/Mobile/QueryApprovedWFSiteFlow",
     type:'POST',             
                 contentType:"application/x-www-form-urlencoded",   // 告诉jQuery不要去设置Content-Type请求头
@@ -191,7 +191,18 @@ function initMenu(id){
                    }
                    //为什么要点击两次才会生效
                    console.log("添加了子菜单")
+
                    document.getElementById('menu'+ id).innerHTML = list_html;
+
+                   //切记 在动态添加进入页面后 设置高度  否则第一次点开是空白
+                   menu = document.getElementById("menu"+ id);
+                   indicator = document.getElementById("indicator" +id);
+                   
+                   childAmount = menu.getElementsByTagName('div').length;
+                   dividerAmount = menu.getElementsByTagName('li').length;
+                   height = childAmount * itemHeight + dividerAmount * dividerHeight;
+                   menu.style.height = height + "px";
+                   indicator.style.transform = "rotate(180deg)";
                  }
                }
              });
@@ -222,11 +233,11 @@ function openMenu(obj) {
     //打开子菜单
     if (height == "0px" || height == "") {
      console.log("点击的是开启");
-     childAmount = menu.getElementsByTagName('div').length;
-     dividerAmount = menu.getElementsByTagName('li').length;
-     height = childAmount * itemHeight + dividerAmount * dividerHeight;
-     menu.style.height = height + "px";
-     indicator.style.transform = "rotate(180deg)";
+     // childAmount = menu.getElementsByTagName('div').length;
+     // dividerAmount = menu.getElementsByTagName('li').length;
+     // height = childAmount * itemHeight + dividerAmount * dividerHeight;
+     // menu.style.height = height + "px";
+     // indicator.style.transform = "rotate(180deg)";
       //请求菜单内容
       initMenu(menuTitleId.substring(10))
     } else {
